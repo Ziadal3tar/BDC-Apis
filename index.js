@@ -10,14 +10,12 @@ import cors from "cors";
 import { globalError } from './src/services/asyncHandler.js';
 import connection from './DB/connection.js';
 
-app.use(cors('*'));
-
-// Or you can configure CORS with specific options
-app.use(cors({
-    origin: 'http://localhost:4200', // allow only this origin
-    methods: ['GET', 'OPTIONS', 'POST', 'PUT', 'DELETE'], // allow only specific HTTP methods
-    allowedHeaders: ['Content-Type'], // allow only specific headers
-}));
+// CORS Configuration
+var corsOptions = {
+    origin: "*", // Allows all origins
+    optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions)); // Pass the options to the cors middleware
 
 const port = process.env.PORT || 3000;
 app.use(globalError);
