@@ -6,16 +6,12 @@ dotenv.config({ path: path.join(__dirname, './config/.env') });
 
 import express from 'express';
 const app = express();
-import cors from "cors";
 import { globalError } from './src/services/asyncHandler.js';
 import connection from './DB/connection.js';
+import cors from "cors";
 
-// CORS Configuration
-var corsOptions = {
-    origin: "*", // Allows all origins
-    optionsSuccessStatus: 200
-};
-app.use(cors(corsOptions)); // Pass the options to the cors middleware
+app.use(cors("*"))
+
 
 const port = process.env.PORT || 3000;
 app.use(globalError);
