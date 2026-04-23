@@ -1,6 +1,5 @@
 
 import { asyncHandler } from '../../../services/asyncHandler.js';
-import { findById, findByIdAndDelete, findOneAndUpdate, findOne, find, findByIdAndUpdate, create, findOneAndDelete } from '../../../../DB/DBMethods.js';
 import userModel from '../../../../DB/model/user.model.js';
 
 
